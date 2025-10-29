@@ -13,6 +13,7 @@ import "./App.css";
 import Board from "./components/Board";
 import Pin from "./components/Pin";
 import * as THREE from "three";
+import CozyLoader from "./components/CozyLoader";
 
 /** Mood and Light Manager*/
 function LightingManager() {
@@ -344,13 +345,14 @@ export default function App() {
   return (
     <>
       <Canvas shadows camera={{ position: [6, 8, 15], fov: 45 }}>
-        <Suspense
+        {/* <Suspense
           fallback={
             <Html center>
               <div className="tag">Loading☕...</div>
             </Html>
           }
-        >
+        > */}
+        <Suspense fallback={<CozyLoader />}>
           <LightingManager />
           <group>
             <House />
