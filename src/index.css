@@ -1,0 +1,38 @@
+body,
+html,
+#root {
+  margin: 0;
+  height: 100%;
+  font-family: "Arial", sans-serif;
+  direction: rtl;
+  background-color: #000;
+}
+
+.app-container {
+  height: 100vh;
+  position: relative;
+}
+
+.info-panel {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(255, 255, 255, 0.8);
+  padding: 16px;
+  border-radius: 12px;
+  text-align: center;
+  width: 80%;
+  max-width: 400px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.info-panel h1 {
+  margin: 0;
+  font-size: 24px;
+}
+
+.info-panel p {
+  margin: 6px 0;
+  font-size: 18px;
+}
