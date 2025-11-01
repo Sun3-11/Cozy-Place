@@ -58,6 +58,19 @@ export const useStore = create((set, get) => ({
         [key]: { obj, offset, rotation },
       },
     })),
+  registerTargetBook: (
+    key,
+    obj,
+    offset = [0, 2.5, 3],
+
+    rotation = [0, 0, 0]
+  ) =>
+    set((state) => ({
+      targets: {
+        ...state.targets,
+        [key]: { obj, offset, rotation },
+      },
+    })),
 
   /** sounds*/
   tracks: [

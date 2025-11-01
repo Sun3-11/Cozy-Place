@@ -24,11 +24,13 @@ export default function Overlay() {
     { key: "notebook", label: "📓 Notes", color: "#FFAAA5" },
     { key: "board", label: "🎨 Board", color: "#D3C1FF" },
     { key: "wall", label: "📍 Pin", color: "#84B1FF" },
+    // ✨ القسم الجديد للكتاب
+    { key: "book", label: "📖 Book", color: "#F9E79F" },
   ];
 
   return (
     <>
-      {/*Exit*/}
+      {/*  Exit Button */}
       {view === "inside" && (
         <button
           onClick={() => setView("outside")}
@@ -50,7 +52,7 @@ export default function Overlay() {
         </button>
       )}
 
-      {/* Mood Bar(Responsive Bar) */}
+      {/* Mood Bar */}
       <div
         style={{
           position: "absolute",
@@ -100,7 +102,7 @@ export default function Overlay() {
         ))}
       </div>
 
-      {/* Music*/}
+      {/*  Music Control */}
       {focus === "radio" && (
         <div
           style={{
@@ -124,7 +126,7 @@ export default function Overlay() {
             animation: "fadeIn 0.6s ease",
           }}
         >
-          {/* radio icon*/}
+          {/*  Icon */}
           <div
             style={{
               width: "15px",
@@ -135,12 +137,9 @@ export default function Overlay() {
               alignItems: "center",
               justifyContent: "center",
               boxShadow: "0 4px 15px rgba(127,199,175,0.3)",
-              // marginBottom: "3px",
               position: "relative",
             }}
           >
-            {/* <span style={{ fontSize: "25px",}}>📻</span> */}
-            {/* smal wave music*/}
             <div
               style={{
                 position: "absolute",
@@ -166,7 +165,7 @@ export default function Overlay() {
             </div>
           </div>
 
-          {/*song name*/}
+          {/*  Song Name */}
           <div
             style={{
               fontSize: "clamp(14px, 1.8vw, 10px)",
@@ -174,14 +173,13 @@ export default function Overlay() {
               color: "#333",
               marginBottom: "5px",
               marginTop: "5px",
-
               textTransform: "capitalize",
             }}
           >
             {tracks[current]?.title || "howl’s moving castle"}
           </div>
 
-          {/* button control*/}
+          {/*  Controls */}
           <div
             style={{
               display: "flex",
@@ -190,14 +188,12 @@ export default function Overlay() {
               gap: "clamp(10px, 2vw, 14px)",
               marginBottom: "5px",
               marginTop: "5px",
-
               textAlign: "center",
             }}
           >
             <button style={radioCircleBtn} onClick={prev}>
               ⏮
             </button>
-
             <button
               style={{
                 ...radioCircleBtn,
@@ -212,13 +208,12 @@ export default function Overlay() {
             >
               {playing ? "⏸" : "▶"}
             </button>
-
             <button style={radioCircleBtn} onClick={next}>
               ⏭
             </button>
           </div>
 
-          {/* valum voice*/}
+          {/*  Volume */}
           <input
             type="range"
             min="0"
@@ -238,7 +233,8 @@ export default function Overlay() {
     </>
   );
 }
-/* circle button*/
+
+/* circle button style */
 const radioCircleBtn = {
   border: "none",
   borderRadius: "50%",

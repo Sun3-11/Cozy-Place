@@ -147,20 +147,26 @@ export default function Pin({
     >
       <ambientLight intensity={0.5} />
       <directionalLight position={[2, 3, 1]} intensity={1.1} castShadow />
+
       {pinnedNotes.map((note, i) => {
-        const rnd = seededRandom(note.id ?? i);
-        const rx = (rnd() - 0.5) * 3.0;
-        const ry = rnd() * 2.0 - 0.5;
-        const rz = (rnd() - 0.5) * 0.2;
-        const tilt = rnd() * 10 - 5;
         const color = colors[i % colors.length];
+        const tilt = (Math.random() - 0.5) * 8;
+        const cols = 3; // columns
+        const gapX = 1.4;
+        const gapY = 1.3;
+        const col = i % cols;
+        const row = Math.floor(i / cols);
+        const x = (col - 0.2) * gapX;
+        const y = 2.5 - row * gapY;
+        const z = -row * 0.01;
+
         return (
           <NotePaper
             key={note.id ?? i}
             note={note}
             color={color}
             tiltDeg={tilt}
-            position={[rx, ry, rz]}
+            position={[x, y, z]}
           />
         );
       })}

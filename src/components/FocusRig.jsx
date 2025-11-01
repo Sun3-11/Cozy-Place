@@ -48,13 +48,18 @@ export default function FocusRig() {
       },
       wall: {
         distance: 2.0,
-        elev: -0.1,
-        offset: new THREE.Vector3(-1.2, 0.7, -0.3),
+        elev: 0.1,
+        offset: new THREE.Vector3(-1.2, 0.5, -0.5),
       },
       radio: {
         distance: 1.5,
         elev: 0.15,
         offset: new THREE.Vector3(-0.4, -0, -0.5),
+      },
+      book: {
+        distance: -0.9,
+        elev: -0.5,
+        offset: new THREE.Vector3(0.1, 0.9, 1.2),
       },
     };
 

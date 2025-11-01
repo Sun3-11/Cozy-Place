@@ -14,6 +14,7 @@ import Board from "./components/Board";
 import Pin from "./components/Pin";
 import * as THREE from "three";
 import CozyLoader from "./components/CozyLoader";
+import Book from "./components/Book";
 
 /** Mood and Light Manager*/
 function LightingManager() {
@@ -366,18 +367,23 @@ export default function App() {
                 rotation={[1, 1.4, -1]}
                 scale={0.2}
               />
+              <Book
+                position={[-0.5, 5.39, -5.9]}
+                rotation={[0, 0, 0]}
+                scale={0.12} // ⬅️ هنا أيضًا
+              />
             </group>
             <Environment preset={isDay ? "sunset" : "night"} />
             <Map />
           </group>
         </Suspense>
 
-        <OrbitControls
+        {/* <OrbitControls
           minDistance={1}
           maxDistance={20}
           enableDamping
           dampingFactor={0.1}
-        />
+        /> */}
         <FocusRig />
       </Canvas>
 
@@ -464,10 +470,10 @@ function SoundToggle() {
   );
 }
 
-/** Mood button*/
 function MoodToggle() {
   const mood = useStore((s) => s.mood);
   const setMood = useStore((s) => s.setMood);
+
   const moods = [
     { key: "clear", icon: "☀️" },
     { key: "rain", icon: "🌧️" },
@@ -485,14 +491,18 @@ function MoodToggle() {
         right: "2vw",
         background: "rgba(255, 255, 255, 0.54)",
         borderRadius: "18px",
-        padding: "clamp(6px, 2vh, 6px)",
+        padding: "clamp(5px, 1vh, 1px)",
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
+        justifyContent: "center",
         gap: "clamp(6px, 1.5vh, 12px)",
         boxShadow: "0 3px 10px rgba(0,0,0,0.2)",
         backdropFilter: "blur(6px)",
         zIndex: 10,
+
+        width: "clamp(35px, 10vw, 60px)",
+        transition: "all 0.3s ease",
       }}
     >
       {moods.map((m) => (
@@ -505,14 +515,14 @@ function MoodToggle() {
             width: "clamp(35px, 6vw, 55px)",
             height: "clamp(35px, 6vw, 55px)",
             cursor: "pointer",
-            fontSize: "clamp(18px, 3vw, 20px)",
-            background: m.key === mood ? "#7FC7AF" : "#eee",
+            fontSize: "clamp(18px, 4vw, 22px)",
+            background: m.key === mood ? "#7FC7AF" : "#f2f2f2",
             color: m.key === mood ? "#fff" : "#333",
             boxShadow:
               m.key === mood
                 ? "0 4px 12px rgba(127,199,175,0.5)"
                 : "0 2px 5px rgba(0,0,0,0.1)",
-            transition: "all 0.2s ease",
+            transition: "all 0.25s ease",
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
